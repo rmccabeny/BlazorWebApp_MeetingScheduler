@@ -1,0 +1,68 @@
+﻿@page  "/addEmployee"
+@using BlazorWebApp_MeetingScheduler.Components.Models
+
+<h3>Add Employee</h3>
+
+<EditForm Model="@employee" OnValidSubmit="@HandleValidSubmit">
+    <DataAnnotationsValidator />
+
+    <div>
+        <div>
+            <label for="employeeId">Employee ID:</label>
+            <InputNumber id="employeeId" @bind-Value="@employee.EmployeeId" />
+            <ValidationMessage For="@(() => employee.EmployeeId)" />
+        </div>
+        <div>
+            <label for="firstName">First Name</label>
+            <InputText type="text" name="firstName" @bind-value="@employee.FirstName" placeholder="First Name"/>
+            <ValidationMessage For="@(() => employee.FirstName)" />
+        </div>
+        <div>
+            <label for="lastName">Last Name:</label>
+            <InputText type="text" name="lastName" @bind-Value="@employee.LastName" placeholder="Last Name" />
+            <ValidationMessage For="@(() => employee.LastName)" />
+        </div>
+        <div>
+            <label for="phone">Phone:</label>
+            <InputNumber type="phone" @bind-Value="employee.Phone" placeholder="(___)___-____" />
+            <ValidationMessage For="@(() => employee.Phone)" />             
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <InputText type="email" name="email" @bind-Value="@employee.Email" placeholder="me@me.com" />
+            <ValidationMessage For="@(() => employee.Email)" />
+        </div>
+        <div>
+            <label for="department">Department:</label>
+            <InputSelect id="departmentName" @bind-Value="@employee.DepartmentName">
+                <option value="...">Select a department</option>
+            @foreach (var department in departments)
+            {
+               <option value="department.Name">@department.DepartmentName</option>              
+            }
+            </InputSelect>
+            <ValidationMessage For="@(() => employee.DepartmentName)" />
+        </div>       
+    </div>
+
+
+</EditForm>
+
+@code {
+    //creates a new instance of an employee
+    private Employee employee = new Employee();
+
+    //creates a list of departments to allow the employee to be assigned to
+    private List<Department> departments = new List<Department>();
+
+    protected override async Task OnInitializedAsync()
+    {
+        departments = await GetDepartments();    
+    }
+
+    private async Task<List<Department>> GetDepartments()
+    {
+       HttpClient client = new HttpClient();
+       string url = 
+    }
+}
