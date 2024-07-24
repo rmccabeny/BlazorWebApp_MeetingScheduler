@@ -1,5 +1,6 @@
 ﻿namespace BlazorWebApp_MeetingScheduler.Models
 {
+    // set fields for meeting class
     public class Meeting
     {
         public int Id { get; set; }
