@@ -1,5 +1,6 @@
 using BlazorWebApp_MeetingScheduler.Client.Pages;
 using BlazorWebApp_MeetingScheduler.Components;
+using BlazorWebApp_MeetingScheduler.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,14 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents()
     .AddInteractiveWebAssemblyComponents();
+
+builder.Services.AddDbContext<MeetingSchedulerContext>(options =>
+    options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+builder.Services.AddScoped<IDepartmentService, DepartmentService>();
+builder.Services.AddScoped<IEmployeeService, EmployeeService>();
+builder.Services.AddScoped<IMeetingService, MeetingService>();
+
 
 var app = builder.Build();
 

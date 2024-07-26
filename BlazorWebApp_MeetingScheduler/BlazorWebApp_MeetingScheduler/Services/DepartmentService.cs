@@ -13,7 +13,7 @@ namespace BlazorWebApp_MeetingScheduler.Services
         // creating the interface for the department service
         public interface IDepartmentService
         {
-           Task <List<Department>> GetDepartments();
+            Task <List<Department>> GetDepartments();
             Task<Department> GetDepartmentByIdAsync(int id);
             Task CreateDepartmentAsync(Department department);
             Task UpdateDepartmentAsync(Department department);

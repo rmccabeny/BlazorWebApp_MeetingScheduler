@@ -1,9 +1,35 @@
 ﻿@namespace BlazorWebApp_MeetingScheduler.Components.Pages.Department
 @using BlazorWebApp_MeetingScheduler.Models
+@inject NavagationManager NavigationManager
+@inject DepartmentService DepartmentService
 
 @page "/departments"
 
-<h3>Department List</h3>
+<h3>Departments</h3>
+
+@if (departments == null)
+{
+    <p>Loading...</p>}
+}
+else 
+{
+    table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Department Id</th>
+                <th>Department Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var department in departments)
+            {
+                <tr>
+                    <td>@department.DepartmentId</td>
+                    <td>@department.DepartmentName</td>
+                </tr>
+            }
+        </tbody>
+}
 
 @code {
 

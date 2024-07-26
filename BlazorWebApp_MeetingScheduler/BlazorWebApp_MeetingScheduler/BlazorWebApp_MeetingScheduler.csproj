@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BlazorWebApp_MeetingScheduler.Client\BlazorWebApp_MeetingScheduler.Client.csproj" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="8.0.7" />
   </ItemGroup>
 
 </Project>
