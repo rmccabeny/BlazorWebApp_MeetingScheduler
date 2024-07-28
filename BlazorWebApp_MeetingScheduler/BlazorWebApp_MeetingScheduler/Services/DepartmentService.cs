@@ -1,23 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using BlazorWebApp_MeetingScheduler.Models;
-using BlazorWebApp_MeetingScheduler.Data;
+using System .Threading.Tasks;
 
-namespace BlazorWebApp_MeetingScheduler.Services
+namespace BlazorWebAop_MeetingScheduler.Services
 {
-    // creating the department service
-    public class DepartmentService
+    public class DepartmentService : IDepartmentService
     {
-        // creating the interface for the department service
-        public interface IDepartmentService
+        private readonly List<Department> _departments = new List<Department> 
         {
-            Task <List<Department>> GetDepartments();
-            Task<Department> GetDepartmentByIdAsync(int id);
-            Task CreateDepartmentAsync(Department department);
-            Task UpdateDepartmentAsync(Department department);
-            Task DeleteDepartmentAsync(int id);
+            new Department { Id = 101, Name = "Human Resources" },
+            new Department { Id = 102, Name = "IT" },
+            new Department { Id = 103, Name = "Management" },
+            new Department { Id = 104, Name = "Marketing" },
+            new Department { Id = 105, Name = "Warehouse" }
+        };
+
+        public TaskList<Department>> GetDepartments()
+        {
+
+            // return data from database for all departments
+            return Task.FromResult(_departments);
         }
-    }
+
+
+
+     }
+
+
+
+
+
+
 }
