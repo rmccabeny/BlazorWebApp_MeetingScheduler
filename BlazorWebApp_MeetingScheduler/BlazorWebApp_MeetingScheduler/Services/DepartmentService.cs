@@ -9,11 +9,11 @@ namespace BlazorWebAop_MeetingScheduler.Services
     {
         private readonly List<Department> _departments = new List<Department> 
         {
-            new Department { Id = 101, Name = "Human Resources" },
-            new Department { Id = 102, Name = "IT" },
-            new Department { Id = 103, Name = "Management" },
-            new Department { Id = 104, Name = "Marketing" },
-            new Department { Id = 105, Name = "Warehouse" }
+            new Department { Id = 101, Name = "Human Resources", Manager = new Employee(), WeeklyMeeting = new Meeting() },
+            new Department { Id = 102, Name = "IT", Manager = new Employee(), WeeklyMeeting = new Meeting() },
+            new Department { Id = 103, Name = "Management", Manager = new Employee(), WeeklyMeeting = new Meeting() },
+            new Department { Id = 104, Name = "Marketing", Manager = new Employee(), WeeklyMeeting = new Meeting() },
+            new Department { Id = 105, Name = "Warehouse", Manager = new Employee(), WeeklyMeeting = new Meeting() }
         };
 
 
