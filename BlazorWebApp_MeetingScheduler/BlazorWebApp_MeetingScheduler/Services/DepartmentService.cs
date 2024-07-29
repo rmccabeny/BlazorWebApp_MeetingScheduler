@@ -2,6 +2,7 @@
 using BlazorWebApp_MeetingScheduler.Models;
 using System .Threading.Tasks;
 
+
 namespace BlazorWebAop_MeetingScheduler.Services
 {
     public class DepartmentService : IDepartmentService
@@ -15,8 +16,9 @@ namespace BlazorWebAop_MeetingScheduler.Services
             new Department { Id = 105, Name = "Warehouse" }
         };
 
+
         public TaskList<Department>> GetDepartments()
-        {
+        {   
 
             // return data from database for all departments
             return Task.FromResult(_departments);
